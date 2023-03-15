@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chrome-novnc-2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: chrome-novnc-2
+  template:
+    metadata:
+      labels:
+        app: chrome-novnc-2
+    spec:
+      containers:
+      - name: chrome-novnc-2
+        image: gcr.io/ethereal-link-334503/chrome-novnc
+        ports:
+        - containerPort: 6901
+        - containerPort: 5901
